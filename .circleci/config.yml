@@ -31,7 +31,7 @@ jobs:
   mksh:
     executor: alpine
     steps:
-      - run: apk add ca-certificates 
+      - run: apk add ca-certificates g++
       - checkout
       - attach_workspace:
           at: ~/workspace
@@ -40,7 +40,7 @@ jobs:
           command: |
             export PATH=~/workspace/tools/bin:$PATH
             espbuild mksh.conf
-            ghr $GHR_FLAGS -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ~/package
+            ghr -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ~/package
 
 workflows:
   build:
