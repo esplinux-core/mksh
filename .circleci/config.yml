@@ -16,8 +16,8 @@ jobs:
     steps:
       - run: apk add ca-certificates curl go git build-base
       - run: mkdir -p ~/workspace/tools/bin
-      - run: curl -LO https://github.com/esplinux/espbuild/releases/download/$ESPBUILD_VERSION/espbuild.tar.gz
-      - run: cd ~/workspace/tools; tar xf ~/espbuild.tar.gz
+      - run: curl -LO https://github.com/esplinux/espbuild/releases/download/$ESPBUILD_VERSION/espbuild-static.tar.gz
+      - run: cd ~/workspace/tools; tar xf ~/espbuild-static.tar.gz
       - run: go mod init .
       - run: go get github.com/tcnksm/ghr@$GHR_VERSION
       - run: cp /root/go/bin/ghr ~/workspace/tools/bin
